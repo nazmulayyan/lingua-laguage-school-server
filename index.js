@@ -33,7 +33,7 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
     const databaseCollection = client.db('languageSchoolDb').collection('classAndInstructor')
-    const classCollection = client.db('languageSchoolDb').collection('class')
+    // const classCollection = client.db('languageSchoolDb').collection('class')
 
     //allData
     app.get('/allData', async(req, res)=>{
@@ -42,7 +42,7 @@ async function run() {
     })
 
     //class collection
-    app.post('class', async (req, res)=>{
+    app.post('/class', async (req, res)=>{
         const item = req.body;
         console.log(item);
         const result = await classCollection.insertOne(item);
