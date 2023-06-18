@@ -24,7 +24,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+    // await client.connect();
     const databaseCollection = client.db('languageSchoolDb').collection('classAndInstructor')
     const classCollection = client.db('languageSchoolDb').collection('class')
 
@@ -37,7 +37,6 @@ async function run() {
     //class collection apis 
     app.get('/addClass', async (req, res) =>{
         const email = req.query.email;
-        console.log(email);
         if(!email){
             res.send([]);
         }
